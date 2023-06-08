@@ -1,0 +1,72 @@
+service: jobs-management-service
+
+provider:
+    name: aws
+    iam:
+        role:
+            statements:
+                - Effect: 'Allow'
+                  Action:
+                      - 'lambda:InvokeFunction'
+                  Resource: '*'
+    runtime: nodejs16.x
+    apiGateway:
+        binaryMediaTypes:
+            - '*/*'
+    stage: ${opt:stage}
+    region: ap-south-1
+
+# Lambda cold start problem: https://aws.amazon.com/blogs/compute/operating-lambda-performance-optimization-part-1/
+# solution: https://www.serverless.com/blog/keep-your-lambdas-warm
+custom:
+    sqsArn: 
+        dev: arn:aws:sqs:ap-south-1:032337982671:JMS_IN
+        staging: arn:aws:sqs:ap-south-1:032337982671:JMS_IN_STAGING
+        prod: arn:aws:sqs:ap-south-1:032337982671:JMS_IN_PROD
+    warmup: 
+        default:
+            enabled: true
+            cleanFolder: false
+            memorySize: 256
+            name: jobs-management-service-${opt:stage}-warmer
+            vpc: false
+            events:
+                - schedule: 'cron(0/5 8-23 ? * MON-FRI *)' # every 5 minutes Mon-Fri b/w 0800 - 1755 UTC
+            package:
+                individually: true
+                patterns:
+                    - '!../**'
+                    - '!../../**'
+                    - ./**
+            timeout: 20
+            tracing: true
+            verbose: false
+            logRetentionInDays: 7
+            prewarm: true
+            payloadRaw: true
+            concurrency: 1
+
+functions:
+    app:
+        handler: app.handler
+        warmup:
+            default:
+                enabled: true
+        events:
+            - http: ANY /
+            - http: ANY {proxy+}
+        timeout: 15
+    eventHandler:
+        handler: services/eventManager.handler
+        timeout: 100
+        useDotenv: true
+        warmup:
+            default:
+                enabled: false
+        events:
+            - sqs: ${self:custom.sqsArn.${opt:stage}}
+
+plugins:
+    - serverless-plugin-warmup
+    - serverless-plugin-include-dependencies
+    - serverless-plugin-common-excludes

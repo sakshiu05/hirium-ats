@@ -1,0 +1,2995 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "description": "Job management API collection",
+        "version": "1.0.0",
+        "title": "Job management API"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api/v1",
+            "description": "Local Url"
+        },
+        {
+            "url": "https://28pefee5bg.execute-api.ap-south-1.amazonaws.com/dev/api/v1",
+            "description": "Development Url"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "tags": [
+        {
+            "name": "Client",
+            "description": "Client API collection",
+            "externalDocs": {
+                "description": "Explore",
+                "url": "#"
+            }
+        },
+        {
+            "name": "Job",
+            "description": "Jobs API collection",
+            "externalDocs": {
+                "description": "Explore",
+                "url": "#"
+            }
+        }
+    ],
+    "paths": {
+        "/assessment/Category/{id}": {
+            "get": {
+                "summary": "Get the single category",
+                "description": "Get the single question category",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of category",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update the single category",
+                "description": "Update the single question category",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of category",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Pet"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete the single category",
+                "description": "Delete the single question category",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of category",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/Groups": {
+            "post": {
+                "summary": "To add new group for question",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Save engineer",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "description": "Update an existent pet in the store",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "get": {
+                "summary": "To get group for question",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Save engineer",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/Groups/{id}": {
+            "put": {
+                "summary": "To add new group for question",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Add new group",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of category",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update an existent pet in the store",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "get": {
+                "summary": "To get group for question",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Get group",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of category",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "To delete group for question",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "delete group",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of category",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/GroupQuestions/{id}": {
+            "post": {
+                "summary": "Add questions in the group",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Add group questions",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of group",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Add new question in the group",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update questions in the group",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Update group questions",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "description": "Update an existent pet in the store",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "get": {
+                "summary": "To get group for question",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Get group",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of group",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "To delete group for question",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "delete group",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of group",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/SingleGroupQuestions/{id}": {
+            "get": {
+                "summary": "To get group for question",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Get group",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of category",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/Questions": {
+            "post": {
+                "summary": "Add all the assessment questions",
+                "description": "Add all the assessment questions",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Pet"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "get": {
+                "summary": "Get all the assessment questions",
+                "description": "Get all the assessment questions",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/SurveyGroupQuestions/{id}": {
+            "get": {
+                "summary": "To get questions group wise",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Get questions group wise",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of group",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/VerificationQuestions/{id}": {
+            "get": {
+                "summary": "To get questions of ss verification",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Get questions of ss verification",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of group",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/Questions/{id}": {
+            "put": {
+                "summary": "Get all the assessment questions",
+                "description": "Add all the assessment questions",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of group",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Pet"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "get": {
+                "summary": "Get single assessment questions",
+                "description": "Get single assessment questions",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of group",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete single assessment questions",
+                "description": "Delete single assessment questions",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/Answers/{id}": {
+            "post": {
+                "summary": "Add answers for the developer work survey",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Add answers for the developer work survey",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of the individual developer",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Add answers for the developer",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "get": {
+                "summary": "Get individual developer answers",
+                "description": "Get individual developer answers",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of individual developer",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Add group id to get the answers of that group",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/user-survey-answers": {
+            "get": {
+                "summary": "Get all the survey assessment answers for the user",
+                "description": "Get all the survey assessment answers for the user",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of individual developer",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/Verification/Answers/{id}": {
+            "post": {
+                "summary": "Add questions in the group",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Add group questions",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of the individual developer",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Add answers for the ss verification of the user",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/Answers/Score/{id}": {
+            "post": {
+                "summary": "Add scores for the developer",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "description": "Add scores for the developer",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of the individual developer",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "get": {
+                "summary": "Get individual developer scores",
+                "description": "Get individual developer scores",
+                "tags": [
+                    "Assessment Management"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "add id of individual developer",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/do-select/test-list": {
+            "get": {
+                "summary": "Get all the test list of tests from doSelect platform",
+                "description": "Get all the test list of tests from doSelect platform",
+                "tags": [
+                    "doSelect API"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/do-select/send-single-link": {
+            "post": {
+                "summary": "To send the link to single user for skill test",
+                "description": "To send the link to single user for skill test",
+                "tags": [
+                    "doSelect API"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SingleLinkShare"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/do-select/send-bulk-link": {
+            "post": {
+                "summary": "To send the link to multiple user for skill test",
+                "description": "To send the link to multiple user for skill test",
+                "tags": [
+                    "doSelect API"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BulkLinkShare"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/do-select/re-shared-link": {
+            "post": {
+                "summary": "To re-share the test link to developer",
+                "description": "To re-share the test link to developer",
+                "tags": [
+                    "doSelect API"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReShareLink"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/assessment/do-select/{id}": {
+            "get": {
+                "summary": "To get all the information of the developer about the assesments taken by him, its result, etc. Pass base64encoded id of the developer",
+                "description": "To get all the information of the developer about the assesments taken by him, its result, etc. Pass base64encoded id of the developer",
+                "tags": [
+                    "doSelect API"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "base64encoded id",
+                        "in": "path",
+                        "description": "add id of individual developer",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/clients": {
+            "get": {
+                "summary": "To get all the information of a client, like name, website, location etc.",
+                "description": "To get all the information of a client, like name, website, location etc., pass location and date created on in query string to get the data",
+                "tags": [
+                    "Client"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "type": "string",
+                        "description": "add location of the company",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "summary": "To create a client's account",
+                "description": "To create a client's account. Client is basically a company, willing to work with SuperSourcing.",
+                "tags": [
+                    "Client"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/CreateClient"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/clients/{id}": {
+            "delete": {
+                "summary": "To delete an account of a client.",
+                "description": "To delete an account of a client.",
+                "tags": [
+                    "Client"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "add base64encoded id of the company/client",
+                        "required": true,
+                        "example": "NjMyMDEzNmJiNWVhMTVlNmMzMTQxOGU4"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "summary": "To update client's information, like name, website, location etc.",
+                "description": "To update client's information, like name, website, location etc.",
+                "tags": [
+                    "Client"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "add base64encoded id of the company",
+                        "required": true,
+                        "example": "NjMyMDEzNmJiNWVhMTVlNmMzMTQxOGU4"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/PatchClient"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "get": {
+                "summary": "To get all the information of a client, like name, website, location etc.",
+                "description": "To get all the information of a client, like name, website, location etc., pass location and date created on in query string to get the data",
+                "tags": [
+                    "Client"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "base64encoded id of a client",
+                        "required": true,
+                        "example": "NjM0M2E3ODkxNWU5ZDYwNGIyOGQ4ZjA5"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/clients/search-client": {
+            "get": {
+                "summary": "To search clients using texts and limiting the result.",
+                "description": "To search if a client exists with such name, pass search text and limit in query string to get the data",
+                "tags": [
+                    "Client"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "type": "string",
+                        "description": "text to be searched",
+                        "required": true
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "type": "integer",
+                        "description": "number of records to be fetched",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/projects/job-list": {
+            "get": {
+                "summary": "To search list of jobs based on skills, experience, search text or role for a client.",
+                "description": "To search list of jobs based on skills, experience and role for a client. [Non Mandatroty] Pass ids for client,primary skill,tech role, search text or experience.",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "experience_range_id",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Provide experience range Id",
+                        "example": "630dd99f61108404f9b18f6b"
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Provide client Id",
+                        "example": "6321d7a31262a479f0a949fb"
+                    },
+                    {
+                        "name": "primary_skill_id",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Provide primary skill Id",
+                        "example": "631ee0f7f354aa036d5c1b08"
+                    },
+                    {
+                        "name": "tech_role_id",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Provide tech role Id",
+                        "example": "631ec339f354aa036d5c1ac4"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Provide text to search ",
+                        "example": "Adani"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/projects/job-detail/{id}": {
+            "get": {
+                "summary": "To get the details of a job posting based on its id",
+                "description": "To get the details of a job posting based on its id passed as base64encoded.",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "Provide job Id as base64encoded",
+                        "example": "NjMyMTcxOWJjYjJiOWM0NGYyODMyMWE4"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/projects/{id}": {
+            "post": {
+                "summary": "To facilitate posting client's requirement.",
+                "description": "To facilitate posting client's requirement. id passed as base64encoded.",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "Provide job Id as base64encoded",
+                        "example": "NjMyMDdmZjQyMjFlMmYxZWFmZmJiZTIw"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/JobPosting"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "summary": "To facilitate updating client's requirement.",
+                "description": "To facilitate updating client's requirement. id passed as base64encoded.",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "Provide job Id as base64encoded",
+                        "example": "NjM2Yjk3NjgzNDBmMmU1ZWUyYTBiM2Yw"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/JobPosting"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "get": {
+                "summary": "To facilitate fetching client's requirement.",
+                "description": "To facilitate fetching client's requirement. id passed as base64encoded.",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "Provide job Id as base64encoded",
+                        "example": "NjM2Yjk3NjgzNDBmMmU1ZWUyYTBiM2Yw"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/projects/job": {
+            "get": {
+                "summary": "To facilitate fetching client's requirement.",
+                "description": "To facilitate fetching client's requirement. id passed as base64encoded.",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "type": "integer",
+                        "description": "Provide offset as integer",
+                        "example": 0
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "type": "integer",
+                        "description": "Provide limit as integer",
+                        "example": 10
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/projects/job/{id}": {
+            "get": {
+                "summary": "To facilitate fetching a job details.",
+                "description": "To facilitate fetching job details. id passed as base64encoded.",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "Provide job Id as base64encoded",
+                        "example": "NjMyNDM2MjcyNDFlYmExZWNjZDg0Njlk"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/projects/win-loss-job-list": {
+            "get": {
+                "summary": "To facilitate fetching win-loss job listings.",
+                "description": "To facilitate fetching win-loss job listings. Based on offset, limit or search passed in the query string.",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "type": "integer",
+                        "description": "Provide offset as integer",
+                        "example": 0
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "type": "integer",
+                        "description": "Provide limit as integer",
+                        "example": 10
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Any company name you want to search for.",
+                        "example": "Adani"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/projects/job-status/{id}": {
+            "put": {
+                "summary": "Update the job status",
+                "description": "Update the status of a job, say Win-Loss, pass id of a job",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "provide job id",
+                        "required": true,
+                        "type": "string",
+                        "example": "NjMyNDM2MjcyNDFlYmExZWNjZDg0Njlk"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/JobStatus"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/projects/update-interaction-count/{id}": {
+            "put": {
+                "summary": "Update status counts from job interaction service.",
+                "description": "Update counts for \n\n 1.Interested \n\n 2.Hired \n\n 3.Rejected \n\n 4.Interviewing 5. Shortlisted",
+                "tags": [
+                    "Job"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "provide job id",
+                        "required": true,
+                        "type": "string",
+                        "example": "NjMyNDM2MjcyNDFlYmExZWNjZDg0Njlk"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/JobCount"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/successResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/components/schemas/invalidResponse"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "successResponse": {
+                "type": "object",
+                "properties": {
+                    "successCode": {
+                        "type": "string"
+                    },
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "object"
+                    }
+                }
+            },
+            "invalidResponse": {
+                "type": "object",
+                "properties": {
+                    "statusCode": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Tag": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "xml": {
+                    "name": "tag"
+                }
+            },
+            "CreateClient": {
+                "required": true,
+                "type": "object",
+                "properties": {
+                    "client_name": {
+                        "type": "string",
+                        "example": "Demo company"
+                    },
+                    "company_website": {
+                        "type": "string",
+                        "example": "www.democomp.com"
+                    },
+                    "linkedin_id": {
+                        "type": "url",
+                        "example": "/linked/in"
+                    },
+                    "industry": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Industry"
+                        }
+                    },
+                    "team_size": {
+                        "type": "array",
+                        "description": "provide company's/client's team size.",
+                        "items": {
+                            "$ref": "#/components/schemas/TeamSize"
+                        }
+                    },
+                    "recently_funded": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Funded"
+                        }
+                    },
+                    "company_city": {
+                        "type": "string",
+                        "example": "provide city name of the company"
+                    },
+                    "company_state": {
+                        "type": "string",
+                        "example": "provide state name of the company"
+                    },
+                    "company_country": {
+                        "type": "string",
+                        "example": "provide country name of the company"
+                    },
+                    "location": {
+                        "type": "string",
+                        "example": "provide location details of the company"
+                    },
+                    "about_company": {
+                        "type": "string",
+                        "example": "provide some information about the company"
+                    },
+                    "how_do_you_found_us": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Found"
+                        }
+                    }
+                },
+                "xml": {
+                    "name": "Create Client"
+                }
+            },
+            "JobPosting": {
+                "type": "object",
+                "properties": {
+                    "client_name": {
+                        "type": "string",
+                        "example": "Demo company"
+                    },
+                    "client_poc": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/POC"
+                        }
+                    },
+                    "role": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Role"
+                        }
+                    },
+                    "experience_range": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ExpRange"
+                        }
+                    },
+                    "client_price": {
+                        "type": "integer",
+                        "example": 32
+                    },
+                    "ss_price": {
+                        "type": "integer",
+                        "example": 35
+                    },
+                    "month_of_engagement": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EngageMonth"
+                        }
+                    },
+                    "engagement_type": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EngageType"
+                        }
+                    },
+                    "no_requirements": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "tentative_start": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tentative"
+                        }
+                    },
+                    "expectations": {
+                        "type": "string",
+                        "example": "Automation Testing"
+                    },
+                    "primary_skills": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PSkills"
+                        }
+                    },
+                    "secondary_skills": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SSkills"
+                        }
+                    },
+                    "working_time_zone": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TZ"
+                        }
+                    },
+                    "working_hours": {
+                        "type": "string",
+                        "example": "2"
+                    },
+                    "travel_preference": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TravelPref"
+                        }
+                    },
+                    "tools_used": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tools"
+                        }
+                    },
+                    "system_provided": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Sys"
+                        }
+                    },
+                    "no_of_rounds": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "job_responsibility": {
+                        "type": "string",
+                        "example": "<p>Automation Testing!!</p>"
+                    },
+                    "is_world_wide": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "location": {
+                        "type": "string",
+                        "example": "Indore, WV, USA"
+                    },
+                    "job_city": {
+                        "type": "string",
+                        "example": "Indore"
+                    },
+                    "job_state": {
+                        "type": "string",
+                        "example": "MP"
+                    },
+                    "job_country": {
+                        "type": "string",
+                        "example": "India"
+                    },
+                    "interview_rounds": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Interview"
+                        }
+                    },
+                    "communication_skill": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CommSkills"
+                        }
+                    }
+                }
+            },
+            "JobStatus": {
+                "type": "object",
+                "properties": {
+                    "job_status": {
+                        "type": "string",
+                        "example": "Win/Loss"
+                    }
+                }
+            },
+            "JobCount": {
+                "type": "object",
+                "properties": {
+                    "increase_type": {
+                        "type": "string",
+                        "example": "shortlisted_count"
+                    },
+                    "decrease_type": {
+                        "type": "string",
+                        "example": "interested_count"
+                    }
+                }
+            },
+            "TravelPref": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "631066f661108404f9b19068"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "Onsite"
+                    }
+                }
+            },
+            "POC": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "6322933642eb1f964d56a6ed"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "sachins@gmail.coms"
+                    },
+                    "mobile_number": {
+                        "type": "string",
+                        "example": "+18889000183"
+                    },
+                    "client_poc": {
+                        "type": "string",
+                        "example": "Sachin Mane"
+                    },
+                    "designation": {
+                        "type": "string",
+                        "example": "Team Lead"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "example": "Doc for Job Management"
+                    }
+                }
+            },
+            "Role": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "631ec339f354aa036d5c1ac4"
+                    },
+                    "role": {
+                        "type": "string",
+                        "example": "Backend Engineer"
+                    },
+                    "skillsArray": {
+                        "type": "array",
+                        "item": {
+                            "$ref": "#/components/schemas/SkillsArr"
+                        }
+                    }
+                }
+            },
+            "SkillsArr": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "631ee0f7f354aa036d5c1b00"
+                    },
+                    "skill": {
+                        "type": "string",
+                        "example": "PHP"
+                    }
+                }
+            },
+            "EngageType": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "6310439361108404f9b18fcb"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "6 Months"
+                    }
+                }
+            },
+            "ExpRange": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "630dd9b961108404f9b18f6c"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "7+"
+                    }
+                }
+            },
+            "EngageMonth": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "6310468b61108404f9b18fcc"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "12 Months"
+                    }
+                }
+            },
+            "Tentative": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "6310602b61108404f9b18fe9"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "Not Specified"
+                    }
+                }
+            },
+            "PSkills": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "631ee0f7f354aa036d5c1b01"
+                    },
+                    "skill": {
+                        "type": "string",
+                        "example": "Typescript"
+                    },
+                    "competency": {
+                        "type": "array",
+                        "item": {
+                            "$ref": "#/components/schemas/Competency"
+                        }
+                    }
+                }
+            },
+            "Competency": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "6310606561108404f9b18fed"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "Advanced"
+                    }
+                }
+            },
+            "SSkills": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "631ee0f7f354aa036d5c1b04"
+                    },
+                    "skill": {
+                        "type": "string",
+                        "example": "Typescript"
+                    }
+                }
+            },
+            "TZ": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "632417a9b1d7dabe7f5730f6"
+                    },
+                    "label": {
+                        "type": "string",
+                        "example": "Africa/Abidjan( UTC -00:16 )"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "Africa/Abidjan"
+                    }
+                }
+            },
+            "Interview": {
+                "type": "object",
+                "properties": {
+                    "round_number": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "round_name": {
+                        "type": "string",
+                        "example": "Technical Round"
+                    }
+                }
+            },
+            "Tools": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "631071ef61108404f9b1907b"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "Agile Practice"
+                    }
+                }
+            },
+            "Sys": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "631072ea61108404f9b19085"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "Yes"
+                    }
+                }
+            },
+            "CommSkills": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "63294c345165559551a5e64d"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "Average"
+                    }
+                }
+            },
+            "Found": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "6316e1f30e767f53cabdd9de"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "LinkedIn Organic"
+                    }
+                }
+            },
+            "PatchClient": {
+                "type": "object",
+                "properties": {
+                    "company_location": {
+                        "type": "string",
+                        "example": "Delhi"
+                    }
+                }
+            },
+            "TeamSize": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "6316e0400e767f53cabdd9b7"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "20-100"
+                    }
+                }
+            },
+            "Funded": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "6316e14e0e767f53cabdd9d9"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "Yes"
+                    }
+                }
+            },
+            "Industry": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "example": "6316e0890e767f53cabdd9bc"
+                    },
+                    "data": {
+                        "type": "string",
+                        "example": "E-Commerce"
+                    }
+                }
+            },
+            "Pet": {
+                "required": [
+                    "name",
+                    "photoUrls"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 10
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "doggie"
+                    },
+                    "category": {
+                        "$ref": "#/components/schemas/Category"
+                    },
+                    "photoUrls": {
+                        "type": "array",
+                        "xml": {
+                            "wrapped": true
+                        },
+                        "items": {
+                            "type": "string",
+                            "xml": {
+                                "name": "photoUrl"
+                            }
+                        }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "xml": {
+                            "wrapped": true
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/Tag"
+                        }
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "pet status in the store",
+                        "enum": [
+                            "available",
+                            "pending",
+                            "sold"
+                        ]
+                    }
+                },
+                "xml": {
+                    "name": "pet"
+                }
+            },
+            "ApiResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "xml": {
+                    "name": "##default"
+                }
+            },
+            "SingleLinkShare": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "example": "abcd@yopmail.com"
+                    },
+                    "eng_id": {
+                        "type": "string",
+                        "example": "730sa2947di31c49b07a800c"
+                    },
+                    "eng_name": {
+                        "type": "string",
+                        "example": "abcd"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "example": "1rrag"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "React Assessment"
+                    }
+                }
+            },
+            "BulkLinkShare": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "React Assessment"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "example": "1rrag"
+                    },
+                    "objects": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "example": "farah1223+bulk+1@doselect.com"
+                                },
+                                "eng_id": {
+                                    "type": "string",
+                                    "example": "63113dc265e58490eba144af"
+                                },
+                                "eng_name": {
+                                    "type": "string",
+                                    "example": "farah1"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "ReShareLink": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "example": "abcd@yopmail.com"
+                    },
+                    "eng_id": {
+                        "type": "string",
+                        "example": "730sa2947di31c49b07a800c"
+                    },
+                    "eng_name": {
+                        "type": "string",
+                        "example": "abcd"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "example": "1rrag"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "React Assessment"
+                    }
+                }
+            }
+        },
+        "requestBodies": {
+            "Pet": {
+                "description": "Pet object that needs to be added to the store",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Pet"
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Pet"
+                        }
+                    }
+                }
+            },
+            "UserArray": {
+                "description": "List of user object",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "Bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}
